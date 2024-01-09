@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:i_flutter/controller/i_text_field.dart';
+import 'package:i_flutter/controls/text_field/iTextField.dart';
+import 'package:i_flutter/themes/iColors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,17 +32,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ITextField()
-          ],
+    IColors.colorTextField = Colors.black;
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ITextField(title: 'haha', required: true,)
+            ],
+          ),
         ),
       ),
     );

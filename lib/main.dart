@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_flutter/controls/text_field/iTextField.dart';
+import 'package:i_flutter/controls/text_field/supports/iKeyboardType.dart';
 import 'package:i_flutter/themes/iColors.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ITextField(title: 'haha', required: true,)
+              ITextField(controller: controller, title: 'haha', keyboardType: IKeyboardType.multiline),
             ],
           ),
         ),
